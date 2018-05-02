@@ -1,5 +1,3 @@
-#
-
 ## To use SCSS
 
 1. Install `sass-loader`, `node-sass`
@@ -32,4 +30,35 @@ Add below after css-loader
 % npm i rmwc --save
 ```
 
-2.
+2. Add `node_modules` to sass-loader in `webpack.config.*.js`
+
+```js
+{
+  loader: require.resolve('sass-loader'),
+  // add below
+  options: {
+    includePaths: [
+      paths.appNodeModules,
+    ]
+  }
+},
+```
+
+3. Use Button
+
+```bash
+% npm install --save @material/button
+```
+
+```scss
+@import "@material/button/mdc-button";
+```
+
+```js
+import { Button } from 'rmwc/Button';
+
+function App() {
+  return (<Button>Button</Button>);
+}
+
+```
